@@ -29,6 +29,7 @@ pipeline {
         stage ('Update') {
             steps {
                 script {
+                    sh "aws ecs register-task-definition --cli-input-json file://task-definition.json"
                     sh "aws ecs update-service --cluster cluster-1 --service common --force-new-deployment --region us-east-2"
                 }
             }
