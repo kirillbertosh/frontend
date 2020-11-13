@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     sh "aws ecs register-task-definition --cli-input-json file://task-definition.json --region us-east-2"
-                    sh "aws ecs update-service --cluster cluster-1 --service common --force-new-deployment --region us-east-2"
+                    sh "aws ecs update-service --cluster cluster-1 --service common --force-new-deployment --task-definition common:latest --region us-east-2"
                 }
             }
         }
