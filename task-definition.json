@@ -18,10 +18,6 @@
       "name": "backend"
     },
     {
-      "dnsSearchDomains": null,
-      "environmentFiles": null,
-      "logConfiguration": null,
-      "entryPoint": null,
       "portMappings": [
         {
           "hostPort": 0,
@@ -29,38 +25,16 @@
           "containerPort": 80
         }
       ],
-      "command": null,
-      "linuxParameters": null,
       "cpu": 0,
       "environment": [],
-      "resourceRequirements": null,
-      "ulimits": null,
-      "dnsServers": null,
       "mountPoints": [],
-      "workingDirectory": null,
-      "secrets": null,
-      "dockerSecurityOptions": null,
       "memory": 128,
-      "memoryReservation": null,
       "volumesFrom": [],
-      "stopTimeout": null,
       "image": "796188858450.dkr.ecr.us-east-2.amazonaws.com/frontend:latest",
-      "startTimeout": null,
-      "dependsOn": null,
-      "disableNetworking": null,
-      "interactive": null,
-      "healthCheck": null,
       "essential": true,
       "links": [
         "backend"
       ],
-      "extraHosts": null,
-      "pseudoTerminal": null,
-      "user": null,
-      "readonlyRootFilesystem": null,
-      "dockerLabels": null,
-      "systemControls": null,
-      "privileged": null,
       "name": "frontend"
     }
   ],
