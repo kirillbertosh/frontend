@@ -30,7 +30,8 @@ pipeline {
             steps {
                 script {
                     sh "aws ecs register-task-definition --cli-input-json file://task-definition.json --region us-east-2"
-                    sh "aws ecs update-service --cluster cluster-1 --service common --force-new-deployment --task-definition common:latest --region us-east-2"
+                    sh "TASK_REVISION=`aws ecs describe-task-definition --task-definition common | egrep \"revision\" | tr "/" " " | awk '{print $2}' | sed 's/"$//'`"
+                    sh "aws ecs update-service --cluster cluster-1 --service common --force-new-deployment --task-definition:$TASK_REVISION --region us-east-2"
                 }
             }
         }
