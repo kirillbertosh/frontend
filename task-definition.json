@@ -45,5 +45,10 @@
   "inferenceAccelerators": [],
   "volumes": [],
   "placementConstraints": [],
-  "tags": []
+  "tags": [
+    {
+      "key": "Name",
+      "value": "common"
+    }
+  ]
 }
