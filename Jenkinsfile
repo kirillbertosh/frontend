@@ -31,7 +31,7 @@ pipeline {
                 script {
                     sh '''
                             aws ecs register-task-definition --cli-input-json file://task-definition.json --region us-east-2
-                            TASK_REVISION=`aws ecs describe-task-definition --task-definition common --region us-east-2 | egrep "revision" | tr "/" " " | awk '{print $2}' | sed 's/"$//'`
+                            TASK_REVISION=`aws ecs describe-task-definition --task-definition terraform-task-definition --region us-east-2 | egrep "revision" | tr "/" " " | awk '{print $2}' | sed 's/"$//'`
                             aws ecs update-service --cluster terraform-cluster --service terraform-service --task-definition common:$TASK_REVISION --region us-east-2
                        '''
                 }
