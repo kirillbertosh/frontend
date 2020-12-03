@@ -15,7 +15,15 @@
       "volumesFrom": [],
       "image": "796188858450.dkr.ecr.us-east-2.amazonaws.com/backend:latest",
       "essential": true,
-      "name": "backend"
+      "name": "backend",
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "backend-log-group",
+          "awslogs-stream-prefix": "backend",
+          "awslogs-region": "us-east-2"
+        }
+      }
     },
     {
       "portMappings": [
@@ -35,10 +43,18 @@
       "links": [
         "backend"
       ],
-      "name": "frontend"
+      "name": "frontend",
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "frontend-log-group",
+          "awslogs-stream-prefix": "frontend",
+          "awslogs-region": "us-east-2"
+        }
+      }
     }
   ],
-  "family": "common",
+  "family": "terraform-service",
   "requiresCompatibilities": [
     "EC2"
   ],
@@ -48,7 +64,7 @@
   "tags": [
     {
       "key": "Name",
-      "value": "common"
+      "value": "terraform-service"
     }
   ]
 }
