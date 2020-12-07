@@ -10,7 +10,6 @@ pipeline {
                             scp -o StrictHostKeyChecking=no -i ${keyfile} src/index.html ec2-user@ec2-18-217-189-22.us-east-2.compute.amazonaws.com:/usr/share/nginx/html/index.html
                             scp -o StrictHostKeyChecking=no -i ${keyfile} src/script.js ec2-user@ec2-18-217-189-22.us-east-2.compute.amazonaws.com:/usr/share/nginx/html/script.js
                             scp -o StrictHostKeyChecking=no -i ${keyfile} src/jquery.serializejson.js ec2-user@ec2-18-217-189-22.us-east-2.compute.amazonaws.com:/usr/share/nginx/html/jquery.serializejson.js
-                            scp -o StrictHostKeyChecking=no -i ${keyfile} src/default.conf ec2-user@ec2-18-217-189-22.us-east-2.compute.amazonaws.com:/etc/nginx/conf.d/default.conf
                        '''
                     }
                 }
