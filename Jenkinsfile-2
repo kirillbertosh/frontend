@@ -5,9 +5,11 @@ pipeline {
         stage ('Deploy') {
             steps {
                 script {
-                    sh '''
-                            scp  -i "/home/ec2-user/terraform-jenkins.pem" index.html ec2-user@ec2-18-217-189-22.us-east-2.compute.amazonaws.com://usr/share/nginx/html/index.html
+                    sshagent(credentials : ['key']) {
+                       sh '''
+                            scp  index.html ec2-user@ec2-18-217-189-22.us-east-2.compute.amazonaws.com://usr/share/nginx/html/index.html
                        '''
+                    }
                 }
             }
         }
