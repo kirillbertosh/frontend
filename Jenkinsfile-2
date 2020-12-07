@@ -7,7 +7,7 @@ pipeline {
                 script {
                     withCredentials([sshUserPrivateKey(credentialsId: "key", keyFileVariable: 'keyfile')]) {
                        sh '''
-                            scp -o StrictHostKeyChecking=no -i ${keyfile} src/index.html ec2-user@ec2-18-217-189-22.us-east-2.compute.amazonaws.com:/usr/share/nginx/html/
+                            scp -o StrictHostKeyChecking=no -i ${keyfile} src/index.html ec2-user@ec2-18-217-189-22.us-east-2.compute.amazonaws.com:/usr/share/nginx/html/index.html
                        '''
                     }
                 }
